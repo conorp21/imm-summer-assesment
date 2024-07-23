@@ -43,9 +43,14 @@ public class GameManager : MonoBehaviour
 
             if (playerLives == 0)
             {
-                GameOver();
+                 //Destroy(other.gameObject);
             }
         }
+    }
+
+    public int showlife()
+    {
+        return playerLives;
     }
 
     // Method to add a key

@@ -78,6 +78,11 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.CompareTag("Enemy"))
         {
             GameManager.instance.RemoveLife();
+             if (GameManager.instance.showlife() == 0)
+            {
+                Destroy(gameObject);
+            }
+            GameManager.instance.showlife();
             StartCoroutine(HandleEnemyCollision());
         }
     }
@@ -86,7 +91,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator HandleEnemyCollision()
     {
         // Implement any logic that should occur after colliding with an enemy
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         // Additional logic after waiting
     }
 }
