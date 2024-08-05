@@ -1,0 +1,21 @@
+		easy
+		
+		player have 3 lives and you need 3 keys with 3 life power ups on level
+
+		medium
+		
+		player has 2 lives with 2 power ups on level and 3 keys to advance 	
+
+		hard  
+
+		player has 1 life with 4 keys on level and 1 power up 
+
+
+		get difficulty from button and use it to set a value to 1,2,3 then if	
+
+		else tree  where we set live, powerup and key requirments variable 
+		
+		then game controll script gets those variables to and sets spawn requirments 
+
+
+		
