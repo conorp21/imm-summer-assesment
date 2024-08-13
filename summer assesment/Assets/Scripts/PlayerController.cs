@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -71,8 +72,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.instance.playerKeys > 2)
             {
-                GameManager.instance.RemoveKey();
-                Destroy(other.gameObject);
+                SceneManager.LoadScene("levelWon");
             }
         }
         else if (other.gameObject.CompareTag("Enemy"))
@@ -85,13 +85,18 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.showlife();
             StartCoroutine(HandleEnemyCollision());
         }
+       else if (other.gameObject.CompareTag("Powerup"))
+        {
+            GameManager.instance.AddLife();
+            Destroy(other.gameObject);
+        }
     }
 
-    // Coroutine to handle a delay after colliding with an enemy
+    
     private IEnumerator HandleEnemyCollision()
     {
-        // Implement any logic that should occur after colliding with an enemy
+       
         yield return new WaitForSeconds(1);
-        // Additional logic after waiting
+       
     }
 }

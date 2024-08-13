@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Singleton instance
+   
     public static GameManager instance;
 
-    // Variables to track player lives and keys
+   
     public int playerLives = 3;
     public int playerKeys = 0;
     public int numberOfEnemies;
@@ -19,11 +19,11 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Ensure there's only one instance of GameManager
+        
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the GameManager across scenes
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
@@ -38,23 +38,21 @@ public class GameManager : MonoBehaviour
             numberOfEnemies = DifficultyManager.instance.numberOfEnemies;
             numberOfPowerups = DifficultyManager.instance.numberOfPowerups;
 
-            // Initialize enemy positions array
+            
             InitializeEnemyPositions();
 
-            // Spawn enemies based on difficulty settings
+            
             SpawnEnemies();
         }
         
     }   
 
-    // Method to add a life
-    public void AddLife()
+      public void AddLife()
     {
         playerLives++;
         
     }
 
-    // Method to remove a life
     public void RemoveLife()
     {
         if (playerLives > 0)
@@ -74,14 +72,14 @@ public class GameManager : MonoBehaviour
         return playerLives;
     }
 
-    // Method to add a key
+    
     public void AddKey()
     {
         playerKeys++;
     
     }
 
-    // Method to remove a key
+    
     public void RemoveKey()
     {
         if (playerKeys > 0)
@@ -91,12 +89,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Method called when player lives reach 0
-    void GameOver()
-    {
-        Debug.Log("Game Over!");
-        // Implement game over logic here (e.g., restart level, show game over screen)
-    }
+   
+    
 
     void InitializeEnemyPositions()
     {

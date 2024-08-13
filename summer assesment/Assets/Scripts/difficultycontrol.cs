@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DifficultyManager : MonoBehaviour
 {
-    // Singleton instance
+    
     public static DifficultyManager instance;
 
-    // Variables to store difficulty settings
+   
     public int playerLives;
     public int playerKeys;
     public int numberOfEnemies;
@@ -15,11 +15,11 @@ public class DifficultyManager : MonoBehaviour
 
     void Awake()
     {
-        // Ensure there's only one instance of DifficultyManager
+
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the DifficultyManager across scenes
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
@@ -27,7 +27,7 @@ public class DifficultyManager : MonoBehaviour
         }
     }
 
-    // Methods to set difficulty
+
     public void SetEasyDifficulty()
     {
         playerLives = 3;
